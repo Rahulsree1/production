@@ -1,0 +1,6 @@
+Flask
+flask-cors
+firebase-admin
+cloudinary
+python-dotenv
+waitress 
