@@ -17,6 +17,10 @@ CORS(app)
 # Load environment variables from .env file
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
 
+if os.getenv("VERCEL") and not os.path.exists("Secret-key.json"):
+    with open("Secret-key.json", "w") as f:
+        f.write(os.environ["GCLOUD_KEY_JSON"])
+
 # Initialize Firebase
 cred = credentials.Certificate("./Secret-key.json")
 firebase_admin.initialize_app(cred)
